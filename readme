@@ -1,0 +1,51 @@
+#Paso 1: Instalar laravel 10.10
+composer create-project --prefer-dist laravel/laravel portaltrabajo
+
+#Paso 2: Configurar env
+Establecer nombre de base de datos, motor, usuario y clave
+
+#Paso 3: Habilitar storage
+php artisan storage:link
+
+#Paso 4: Configurar git
+-git init
+-git remote add origin https://github.com/fidelleandro2023/portaltrabajo.git
+-git branch -M main
+
+#Paso 5: Configurar haproxy
+-crear carpeta haproxy
+-crear archivo haproxy
+-configurar haproxy
+
+#Paso 6: Instalar dependencias
+-npm install
+-npm run dev
+
+#Paso 7: Configurar autenticación
+-composer require laravel/breeze
+-php artisan breeze:install
+
+#Paso 8: Configurar spatie
+-config/app.php
+-composer update spatie/laravel-permission
+-configurar app/Http/Kernel 
+-php artisan vendor:publish --provider="Spatie\Permission\PermissionServiceProvider"
+-php artisan migrate
+
+#Paso 9: Configurar migraciones, modelos y controladores
+-php artisan make:model CompanyCategory -a
+-php artisan make:model JobCategory -a
+-php artisan make:model Occupation -a
+-php artisan make:model Company -a
+-php artisan make:model ContractType -a
+-php artisan make:model Jobseeker -a
+-php artisan make:model Job -a
+-
+
+
+#Paso 10: Configurar seeders
+
+#Paso 11: Configurar request
+
+#Paso 12: Instalar dependencias
+
