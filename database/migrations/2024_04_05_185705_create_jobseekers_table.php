@@ -12,18 +12,18 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('jobseekers', function (Blueprint $table) {
-            $table->id();
-            $table->string('email')->unique();
-            $table->string('doc')->unique();
-            $table->string('doc_type')->default('cc');
-            $table->string('first_name');
-            $table->string('last_name');
-            $table->string('phone')->nullable();
-            $table->string('cel');
-            $table->enum('sex', ['M', 'F']); 
+            //$table->id();
+            $table->string('email')->unique()->comment('');
+            $table->string('doc')->unique()->comment('');
+            $table->string('doc_type')->default('cc')->comment('');
+            $table->string('first_name')->comment('');
+            $table->string('last_name')->comment('');
+            $table->string('phone')->nullable()->comment('');
+            $table->string('cel')->comment('');
+            $table->enum('sex', ['M', 'F'])->comment(''); 
 
-            $table->integer('user_id')->unsigned()->primary();
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->bigInteger('user_id')->unsigned()->primary()->comment('');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');;
 
             $table->timestamps();
         });
