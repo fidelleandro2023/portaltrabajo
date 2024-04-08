@@ -9,6 +9,11 @@ use Illuminate\Database\Eloquent\Factories\Factory;
  */
 class ContractTypeFactory extends Factory
 {
+    protected $types = [
+        ['name' => 'Contrato temporal',   'description' => 'Contrato temporal'],
+        ['name' => 'Contrato laboral',   'description' => 'Contrato laboral'],
+        ['name' => 'Orden de Prestación de Servicios', 'description' => 'Orden de Prestación de Servicios'],
+    ];
     /**
      * Define the model's default state.
      *

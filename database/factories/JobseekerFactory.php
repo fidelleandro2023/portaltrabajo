@@ -17,7 +17,14 @@ class JobseekerFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'doc' => $this->faker->unique()->randomNumber(6),
+            'doc_type'   => $this->faker->randomElement(['DNI', 'Carnet']),
+            'first_name' => $this->faker->firstName(),
+            'last_name' => $this->faker->lastName(),
+            'email' => fake()->unique()->safeEmail(),
+            'phone' => $this->faker->phoneNumber(),
+            'sex'   => $this->faker->randomElement(['F', 'M']),
+            'disability' => $this->faker->text(50)
         ];
     }
 }

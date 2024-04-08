@@ -15,7 +15,7 @@ return new class extends Migration
             //$table->id();
             $table->string('email')->unique()->comment('');
             $table->string('doc')->unique()->comment('');
-            $table->string('doc_type')->default('cc')->comment('');
+            $table->enum('doc_type',['DNI', 'Carnet'])->comment('');
             $table->string('first_name')->comment('');
             $table->string('last_name')->comment('');
             $table->string('phone')->nullable()->comment('');

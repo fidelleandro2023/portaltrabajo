@@ -1,7 +1,7 @@
 <?php
 
 namespace Database\Factories;
-
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
@@ -25,6 +25,8 @@ class UserFactory extends Factory
     {
         return [
             'name' => fake()->name(),
+            "username" => $this->faker->unique()->userName(),
+            "mobile_no" => $this->faker->phoneNumber(),
             'email' => fake()->unique()->safeEmail(),
             'email_verified_at' => now(),
             'password' => static::$password ??= Hash::make('password'),
@@ -32,6 +34,20 @@ class UserFactory extends Factory
         ];
     }
 
+    public function admin(): UserFactory
+    {
+        return $this->afterCreating(function (User $user) {
+            $user->assignRole('admin');
+        }); 
+    }
+
+    public function postulant(): UserFactory
+    {
+        return $this->afterCreating(function (User $user) {
+            $user->assignRole('postulant');
+        });  
+    }
+    
     /**
      * Indicate that the model's email address should be unverified.
      */

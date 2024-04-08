@@ -1,7 +1,7 @@
 <?php
 
 namespace Database\Factories;
-
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,7 +17,15 @@ class CompanyFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'ruc' => $this->faker->randomNumber(8),
+            'business_name' => fake()->company(),
+            'tradename' => $this->faker->streetAddress(),
+            'email' => fake()->unique()->safeEmail(),
+            'description' => $this->faker->phoneNumber(),
+            'website' => 'www.'.$this->faker->userName().'.com',
+            'telephone' => $this->faker->phoneNumber(),
+            //'user_id' => User::all()->random()->id,
+            //'company_category_id' => $this->faker->phoneNumber(), 
         ];
     }
 }
