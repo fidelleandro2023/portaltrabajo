@@ -18,11 +18,17 @@ php artisan storage:link
 -configurar haproxy
 
 #Paso 6: Instalar dependencias
+-npm init
 -npm install
 -npm run dev
+-npm install vite
+-npm install --save-dev laravel-vite-plugin
+-npm install --save-dev @vitejs/plugin-vue
+-npm install @inertiajs/vue3
 
 #Paso 7: Configurar autenticación
 -composer require laravel/breeze
+-composer require laravel/ui
 -php artisan breeze:install
 
 #Paso 8: Configurar spatie

@@ -32,7 +32,7 @@ return new class extends Migration
             $table->bigInteger('occupation_id')->unsigned()->nullable()->default(1)->comment('');
             $table->foreign('occupation_id')->references('id')->on('occupations')->onDelete('cascade');
 
-            $table->bigInteger('company_id')->unsigned()->comment('');
+            $table->bigInteger('company_id')->unsigned()->nullable()->comment('');
             $table->foreign('company_id')->references('id')->on('companies')->onDelete('cascade');
 
             $table->bigInteger('contract_type_id')->unsigned()->default(1)->comment('');

@@ -12,8 +12,8 @@ class RolesAndPermissionsSeeder extends Seeder
         app()[\Spatie\Permission\PermissionRegistrar::class]->forgetCachedPermissions();
 
         $permissionsByRole = [
-            'admin' => ['restore posts', 'force delete posts'],
-            'postulant' => ['create a post', 'update a post', 'delete a post'], 
+            'admin' => ['Listado de trabajos empresa', 'Registro de trabajo','Detalle del trabajo'],
+            'postulant' => ['Listado de trabajos', 'Listado de postulaciones', 'Postular a un trabajo'], 
         ];
         
         $insertPermissions = fn ($role) => collect($permissionsByRole[$role])
